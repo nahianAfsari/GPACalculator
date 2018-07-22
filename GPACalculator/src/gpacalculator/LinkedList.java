@@ -24,10 +24,10 @@ public class LinkedList {
     }
     public void addCourse(Course c)
     {
-        if(head == null)
+        /*if(head == null)
         {
             head = new Node(c);
-        }
+        }*/
         Node temp = head;
         head = new Node(c);
         head.next = temp;
