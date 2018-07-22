@@ -41,7 +41,7 @@ public static LinkedList courseList = new LinkedList();
          System.out.println("Please enter the course name or enter 0 to return to main menu");
          courseName = keyboard.next();
          while(!courseName.equals("0")){
-         
+         //****Remeber to implement input validation*****
          System.out.println("Please enter the number of credit hours you received for the course");
          hour = keyboard.nextInt();
          System.out.println("Please enter the letter grade you received for the course");
@@ -58,6 +58,10 @@ public static LinkedList courseList = new LinkedList();
          
         
     }
+     public static void experimentGPA()
+     {
+          
+     }
      
      public static void mainMenu()
      {
@@ -88,6 +92,10 @@ public static LinkedList courseList = new LinkedList();
          {
              manualInput();
              
+         }
+         if(option == 3)
+         {
+             experimentGPA();
          }
          if(option == 4)
          {
