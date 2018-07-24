@@ -18,6 +18,11 @@ public class LinkedList {
     {
         head = null;
     }
+    
+    public Node getHead()
+    {
+        return head;
+    }
     public LinkedList(Course c)
     {
         head = new Node(c);
@@ -32,6 +37,17 @@ public class LinkedList {
         head = new Node(c);
         head.next = temp;
         
+    }
+    
+    public void deteteTempCourses(int tempNum)
+    {
+        for(int i = 0; i < tempNum; i++)
+        {
+            Node temp = head.next;
+            head.next = null;
+            head = temp;
+            
+        }
     }
     
     public Node findCourse(Course c)
@@ -71,6 +87,11 @@ public class LinkedList {
         private Node next;
         private Course data;
         
+        Node()
+        {
+            next = null;
+            data = null;
+        }
         public Node(Course d)
         {
             data = d;
@@ -79,6 +100,11 @@ public class LinkedList {
         public Course getData()
         {
             return data;
+        }
+        
+        public Node getNext()
+        {
+            return next;
         }
     }
     

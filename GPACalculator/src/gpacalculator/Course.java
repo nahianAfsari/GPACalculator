@@ -13,11 +13,11 @@ public class Course {
     
     String course;
     int hours;
-    String grade;
+    double grade;
     
    
     
-    Course(String c, int h, String g)
+    Course(String c, int h, double g)
     {
        
         course = c;
