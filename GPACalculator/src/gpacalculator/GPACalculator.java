@@ -172,63 +172,77 @@ public static LinkedList courseList = new LinkedList();
                       hour = keyboard.nextInt();
                       
                       gradeNeeded = (((wantedGPA)*(experiment1.getTotalHours() + hour))-(experiment1.getTotalAvg()))/(hour);
+                      System.out.println(gradeNeeded);
                       if(gradeNeeded > 4.0)
                       {
                           System.out.println(wantedGPA + " is not attainable with "+hour+" credit hours");
+                          mainMenu();
                       }
                       else if(gradeNeeded < 0)
                       {
                           System.out.println(wantedGPA + " is not attainable with "+hour+" credit hours");
+                          mainMenu();
                           
                       }
-                    if(gradeNeeded == 4.0)
+                    if(gradeNeeded > 3.67)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an A+ or A");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 3.67)
+                     if(gradeNeeded > 3.33)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an A-");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 3.33)
+                     if(gradeNeeded > 3 )
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B+");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 3)
+                     if(gradeNeeded > 2.67)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B");
                     }
-                     if(gradeNeeded == 2.67)
+                     if(gradeNeeded > 2.33)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B-");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 2.33)
+                     if(gradeNeeded > 2)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C+");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 2)
+                     if(gradeNeeded > 1.67)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C");
+                        mainMenu();
                     }
-                     if(gradeNeeded == 1.67)
+                     if(gradeNeeded > 1.33)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C-");
+                        mainMenu();
                     }
-                      if(gradeNeeded == 1.33)
+                      if(gradeNeeded > 1)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D+");
+                        mainMenu();
                     }
-                      if(gradeNeeded == 1)
+                      if(gradeNeeded > .67)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D");
+                        mainMenu();
                     }
-                      if(gradeNeeded == .67)
+                      if(gradeNeeded > 0)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D-");
+                        mainMenu();
                     }
                       if(gradeNeeded == 0)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an F.");
                         System.out.println("You could fail the class and still maintain that GPA!");
+                        mainMenu();
                         
                     }
                     break;
@@ -273,6 +287,11 @@ public static LinkedList courseList = new LinkedList();
             System.out.println("4. Exit the program");
             option = keyboard.nextInt();
              
+         }
+         if(option == 1)
+         {
+             FileIO io = new FileIO();
+             io.openFileForUser();
          }
          
          if(option == 2)
