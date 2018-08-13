@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gpacalculator;
 
 import java.text.DecimalFormat;
@@ -14,10 +10,8 @@ import java.util.Scanner;
  */
 
 public class GPACalculator {
-public static LinkedList courseList = new LinkedList();
-    /**
-     * @param args the command line arguments
-     */
+public static LinkedList courseList = new LinkedList(); 
+   
     
     public static void main(String[] args) {
         
@@ -26,6 +20,11 @@ public static LinkedList courseList = new LinkedList();
         if(courseList != null)
         {
             courseList.printList();
+            System.out.println("Making a .txt file named \"courseList.txt\" and printing the entire list of ");
+            System.out.print("course in a format such that the file can be uploaded to the program for reading, experimenting and");
+            System.out.print(" other modifications");
+            FileIO io = new FileIO();
+            io.makeListForUser(courseList.getHead());
         }
         else
         {
@@ -178,67 +177,61 @@ public static LinkedList courseList = new LinkedList();
                           System.out.println(wantedGPA + " is not attainable with "+hour+" credit hours");
                           mainMenu();
                       }
-                      else if(gradeNeeded < 0)
-                      {
-                          System.out.println(wantedGPA + " is not attainable with "+hour+" credit hours");
-                          mainMenu();
-                          
-                      }
-                    if(gradeNeeded > 3.67)
+                    if(gradeNeeded > 3.67 && gradeNeeded <= 4.0)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an A+ or A");
                         mainMenu();
                     }
-                     if(gradeNeeded > 3.33)
+                     if(gradeNeeded > 3.33 && gradeNeeded <= 3.67)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an A-");
                         mainMenu();
                     }
-                     if(gradeNeeded > 3 )
+                     if(gradeNeeded > 3 && gradeNeeded <= 3.33 )
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B+");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a B+");
                         mainMenu();
                     }
-                     if(gradeNeeded > 2.67)
+                     if(gradeNeeded > 2.67 && gradeNeeded <= 3)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a B");
                     }
-                     if(gradeNeeded > 2.33)
+                     if(gradeNeeded > 2.33 && gradeNeeded <= 2.67)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an B-");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a B-");
                         mainMenu();
                     }
-                     if(gradeNeeded > 2)
+                     if(gradeNeeded > 2 && gradeNeeded <= 2.33)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C+");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a C+");
                         mainMenu();
                     }
-                     if(gradeNeeded > 1.67)
+                     if(gradeNeeded > 1.67 && gradeNeeded <= 2)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a C");
                         mainMenu();
                     }
-                     if(gradeNeeded > 1.33)
+                     if(gradeNeeded > 1.33 && gradeNeeded <= 1.67)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an C-");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a C-");
                         mainMenu();
                     }
-                      if(gradeNeeded > 1)
+                      if(gradeNeeded > 1  && gradeNeeded <= 1.33)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D+");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a D+");
                         mainMenu();
                     }
-                      if(gradeNeeded > .67)
+                      if(gradeNeeded > .67 && gradeNeeded <= 1)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a D");
                         mainMenu();
                     }
-                      if(gradeNeeded > 0)
+                      if(gradeNeeded > 0 && gradeNeeded <= .67)
                     {
-                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is an D-");
+                        System.out.println("Grade needed in the class to attain "+wantedGPA+" is a D-");
                         mainMenu();
                     }
-                      if(gradeNeeded == 0)
+                      if(gradeNeeded == 0  || gradeNeeded < 0)
                     {
                         System.out.println("Grade needed in the class to attain "+wantedGPA+" is an F.");
                         System.out.println("You could fail the class and still maintain that GPA!");

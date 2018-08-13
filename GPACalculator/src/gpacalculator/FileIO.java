@@ -6,9 +6,11 @@
 package gpacalculator;
 
 import static gpacalculator.GPACalculator.courseList;
+import gpacalculator.LinkedList.Node;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -112,7 +114,7 @@ public class FileIO {
                          break;
              case "B+" : g = 3.33;
                          break;
-             case "B" : g = 3;
+             case "B" :  g = 3;
                          break;
                          
              case "B-" : g = 2.67;
@@ -136,6 +138,24 @@ public class FileIO {
          }
          
          return g;
+    }
+    public void makeListForUser(Node head)
+    {
+        try{
+           PrintWriter writer = new PrintWriter("courseList.txt", "UTF-8");
+           Node currNode = head;
+           while(currNode != null)
+           {
+               writer.println(currNode.getData().toString());
+               currNode = currNode.getNext();
+           }
+            writer.close();
+            
+        }
+        catch(IOException e)
+        {
+            System.out.println("Could not write to file named \"courseList.txt\"");
+        }
     }
     
     

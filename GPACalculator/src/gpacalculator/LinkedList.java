@@ -73,6 +73,34 @@ public class LinkedList {
         return foundNode; //once this is returned, check foundNode.data.course - or whatever 
     }
     
+    public void removeCourse(Course c)
+    {
+        Node currNode;
+        Node prevNode = null;
+        
+        currNode = head;
+        while(currNode != null)
+        {
+            if(c.course.equals(head.data.course))
+            {
+                head = head.next;
+                break;
+            }
+            if(c.course.equals(currNode.data.course))
+            {
+                prevNode.next = currNode.next;
+                break;
+                
+            }
+            prevNode = currNode;
+            currNode = currNode.next;
+        }
+        
+        
+    
+        
+    }
+    
     public void printList()
     {
         Node currNode = head;
