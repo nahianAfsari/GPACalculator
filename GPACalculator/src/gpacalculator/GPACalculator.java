@@ -19,7 +19,7 @@ public static LinkedList courseList = new LinkedList();
     public static void main(String[] args) {
         
        
-        mainMenu();
+        mainMenu(); //this will immediately display main menu 
         //letting the user know a .txt file of their courses/updated courses exist if they added any courses
         if(courseList != null)
         {
@@ -35,6 +35,7 @@ public static LinkedList courseList = new LinkedList();
             System.out.println("Course list is empty");
         }
     }
+     //method to help user manually Input their courses, grades and credit hours
      public static void manualInput(){
          
          String courseName = "0";
@@ -46,7 +47,6 @@ public static LinkedList courseList = new LinkedList();
          System.out.println("Please enter the course name");
          courseName = keyboard.next();
          try{
-         //****Remeber to implement input validation*****
          System.out.println("Please enter the number of credit hours you received for the course");
          hour = keyboard.nextInt();
          System.out.println("Please enter the letter grade you received for the course");
@@ -60,6 +60,7 @@ public static LinkedList courseList = new LinkedList();
              letterGrade = (keyboard.next()).toUpperCase();
              input = letterGrade.charAt(0);
          }
+         //converts letter grade to a 4.0 scale
          switch(letterGrade){
              case "A+" : grade = 4;
                          break;
@@ -95,7 +96,7 @@ public static LinkedList courseList = new LinkedList();
          
          System.out.println(grade);
          Course course = new Course(courseName, hour, grade);
-         courseList.addCourse(course);
+         courseList.addCourse(course); //add this course to the main system
          
         
          }
@@ -108,6 +109,14 @@ public static LinkedList courseList = new LinkedList();
          
         
     }
+     /*
+     Method the helps user experiment with their grades for example : 
+     1. The first option is to calculate GPA 
+     2. The second option is lets user add temporary classes,(say the classes the user is taking right now)
+        & add possible letter grades to see how it could affect their GPA.
+     3. The third option is for users who want to know the exact letter grade they need to get in 
+         a certain class to attain a certain GPA
+     */
      public static void experimentGPA()
      {
          int option = 0;
@@ -264,7 +273,10 @@ public static LinkedList courseList = new LinkedList();
          
           
      }
-     
+     /*
+     just a method to display all the options to the user. This method calls on other methods
+     pertaining to user's choice.
+     */
      public static void mainMenu()
      {
           Scanner keyboard = new Scanner(System.in);
@@ -292,6 +304,7 @@ public static LinkedList courseList = new LinkedList();
          }
          if(option == 1)
          {
+             //creates a FileIO class to deal with file io operations
              FileIO io = new FileIO();
              io.openFileForUser();
          }
