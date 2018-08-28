@@ -1,8 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Class to facilitate File IO operations 
+*/
 package gpacalculator;
 
 import static gpacalculator.GPACalculator.courseList;
@@ -34,7 +32,7 @@ public class FileIO {
        
        fileName = input.next();
        
-       
+       //file name validation
        while(fileName.equals(null))
        {
           System.out.println("Please enter your valid file name. For ex : \"file.txt\"");
@@ -55,21 +53,24 @@ public class FileIO {
             int hours;
             double g; //grade converted from 'string grade'
             
+            /*will print out on the console what exact classes were added so user is aware if certain
+            classes were not correctly added*/
             System.out.println("Courses added  : ");
             while ((info = in.readLine()) != null) {
                arr=info.split(",");
                
-               if(arr.length != 3 )
+               if(arr.length != 3 )/*if file is not written in the correct format like "[CourseName],[Grade],
+                                        [Hours] then program will throw an exception*/
                {
                    throw new InputMismatchException();
                }
-               
+               /*btw, a sample input file is in the github repository in the same directory as the src folder*/
                System.out.println("class : " + arr[0] + " Grade : "+ arr[1] + " Hours : "+arr[2]);
                courseName = arr[0];
                grade = arr[1];
                hours = Integer.valueOf(arr[2]);
                g = calculateGrade(grade);
-               Course course = new Course(courseName, hours, g);
+               Course course = new Course(courseName, hours, g); //adding the courses from the file to the program
                courseList.addCourse(course);
                
                
@@ -89,7 +90,7 @@ public class FileIO {
        
     
     }
-    
+    //this method is to convert the letter grade into numbers
     public double calculateGrade(String grade)
     {
         double g;//grade
@@ -139,6 +140,10 @@ public class FileIO {
          
          return g;
     }
+     
+    /*this method creates a file for the user after they are done using the program.
+      This file that is generated can be used by the user again to upload the grades into
+      the program without manually adding them again*/
     public void makeListForUser(Node head)
     {
         try{

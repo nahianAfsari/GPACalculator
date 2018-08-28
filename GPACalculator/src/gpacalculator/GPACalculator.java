@@ -1,7 +1,10 @@
-
+/*
+A simple yet effective GPA calculator to keep up with grades 
+*/
 package gpacalculator;
 
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,6 +20,7 @@ public static LinkedList courseList = new LinkedList();
         
        
         mainMenu();
+        //letting the user know a .txt file of their courses/updated courses exist if they added any courses
         if(courseList != null)
         {
             courseList.printList();
@@ -41,7 +45,7 @@ public static LinkedList courseList = new LinkedList();
          Scanner keyboard = new Scanner(System.in);
          System.out.println("Please enter the course name");
          courseName = keyboard.next();
-         
+         try{
          //****Remeber to implement input validation*****
          System.out.println("Please enter the number of credit hours you received for the course");
          hour = keyboard.nextInt();
@@ -94,7 +98,12 @@ public static LinkedList courseList = new LinkedList();
          courseList.addCourse(course);
          
         
-        
+         }
+         catch(InputMismatchException e)
+         {
+             System.out.println("Wrong type of input. Please enter the correct format of input");
+             manualInput();
+         }
            
          
         

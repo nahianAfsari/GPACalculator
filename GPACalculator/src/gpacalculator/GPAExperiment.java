@@ -1,4 +1,6 @@
-
+/*
+Data structure to handle the GPA experiments the user might test out on their grades
+*/
 package gpacalculator;
 
 import gpacalculator.LinkedList.Node;

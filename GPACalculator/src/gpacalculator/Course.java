@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gpacalculator;
 
 /**
@@ -30,6 +26,7 @@ public class Course {
     {
         return course+","+calculateGrade(grade)+","+hours;
     }
+    //function to convert numbers into letter grades
     public String calculateGrade(double grade)
     {
         String g = "";//grade

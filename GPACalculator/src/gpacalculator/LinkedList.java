@@ -1,8 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Data structure to maintain the actual grades in the system
+*/
 package gpacalculator;
 
 /**
@@ -38,7 +36,13 @@ public class LinkedList {
         head.next = temp;
         
     }
-    
+    /*
+    This method is to facilitate one the GPA experiments the user will do on their grades. When
+    the user wants to add temporary grades to see how their GPA might flunctuate, we don't want it 
+    in the actual system after the user is done experimenting. The program keeps a tally on how many
+    courses were added and that number is sent to this function and based on that number, courses are 
+    removed from the head since courses are inserted at the head.
+    */
     public void deteteTempCourses(int tempNum)
     {
         for(int i = 0; i < tempNum; i++)
